@@ -29,7 +29,7 @@ class RealTimeDetectionViewController: UIViewController {
         
         let spec = VideoSpec(fps: 3, size: CGSize(width: 1280, height: 720))
         self.videoCapture = VideoCapture(cameraType: .back, preferredSpec: spec, previewContainer: self.cameraView.layer)
-        // 캡쳐화면에서 이미지가 바뀔때마다 콜됨
+        // called repeatedly every time the image window changes
         self.videoCapture.imageBufferHandler = {(imageBuffer, timestamp, outputBuffer) in
             self.detectObject(image: imageBuffer)
         }
